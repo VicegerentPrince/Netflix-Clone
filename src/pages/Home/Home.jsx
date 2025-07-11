@@ -5,6 +5,8 @@ import hero_title from "../../assets/hero_title.png";
 import { PlayIcon } from "@heroicons/react/16/solid";
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
 import MovieCards from "../../components/MovieCards";
+import Footer from "../../components/Footer";
+
 
 const Home = () => {
   return (
@@ -14,10 +16,10 @@ const Home = () => {
         <div className="relative">
           <img
             src={banner}
-            class="w-full h-full object-cover mask-b-from-80%"
+            className="w-full h-full object-cover mask-b-from-80%"
             alt="Hero image"
           />
-          <div class="absolute inset-0 mask-r-from-10% opacity-65 bg-black w-[60%]"></div>
+          <div className="absolute inset-0 mask-r-from-10% opacity-65 bg-black w-[60%]"></div>
         </div>
 
         <div className="hero-caption absolute top-35 px-16 w-full">
@@ -46,8 +48,15 @@ const Home = () => {
             <p className="cursor-default">A 18+</p>
           </div>
         </div>
+        <MovieCards className="pl-8 -mt-38 relative" title="Popular on Netflix"  />
       </div>
-        <MovieCards className="" />
+      <div className="more-cards pl-8 mt-10 flex flex-col gap-4">
+        <MovieCards className=""  title="Your Next Watch" />
+        <MovieCards className=""  title="Only On Netflix" />
+        <MovieCards className=""  title="Upcoming" />
+      </div>
+
+      <Footer className="px-10 mt-15 pt-10 pb-20 bg-black"></Footer>
     </div>
   );
 };
