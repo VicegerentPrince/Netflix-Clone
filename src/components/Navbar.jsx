@@ -7,7 +7,7 @@ import { ChevronDownIcon } from "@heroicons/react/16/solid";
 
 const Navbar = () => {
   return (
-    <div className="navbar flex items-center justify-between w-full fixed left-0 top-0 px-10 py-8">
+    <div className="navbar flex items-center justify-between w-full fixed z-50 left-0 top-0 px-10 py-8 bg-gradient-to-t from-transparent to-black">
       <div className="navbar-left flex items-center gap-8">
         <img src="/logo.png" className="logo h-8 cursor-pointer transition-all ease-in-out hover:scale-101 duration-300" alt="Logo"/>
         <ul className="flex gap-4 text-sm">
