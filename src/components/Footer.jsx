@@ -5,21 +5,21 @@ const Footer = ({className = ""}) => {
     <div className={`${className}`}>
       <p className='mb-5 font-extrabold'>Questions? Contact us.</p>
       <div className="sections flex justify-between mb-10 px-10 leading-10 underline">
-        <ul className="left">
+        <ul className="left cursor-pointer">
             <li>FAQ</li>
             <li>Media Center</li>
             <li>Ways to Watch</li>
             <li>Cookie Preferences</li>
             <li>Speed Test</li>
         </ul>
-        <ul className="middle">
+        <ul className="middle cursor-pointer">
             <li>Help Center</li>
             <li>Invester Relations</li>
             <li>Terms of Use</li>
             <li>Corporate Information</li>
             <li>Legal Notices</li>
         </ul>
-        <ul className="right">
+        <ul className="right cursor-pointer">
             <li>Account</li>
             <li>Jobs</li>
             <li>Privacy</li>
