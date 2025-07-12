@@ -38,7 +38,7 @@ const Home = () => {
               {" "}
               <PlayIcon className="md:h-5 md:w-5 w-3 2xl:h-10 2xl:w-10" /> Play
             </button>
-            <button className="flex items-center md:gap-2 px-1.5 py-1 md:px-7 md:py-2.5 2xl:px-14 2xl:py-4 bg-gray-400/50 text-white rounded-md font-bold cursor-pointer text-xs md:text-lg 2xl:text-4xl hover:bg-gray-400/30 ease-in-out transition-colors text-shadow-lg">
+            <button className="flex items-center md:gap-2 px-1.5 py-1 md:px-7 md:py-2.5 2xl:px-14 2xl:py-4 bg-gray-500/70 text-white rounded-md font-bold cursor-pointer text-xs md:text-lg 2xl:text-4xl hover:bg-gray-400/30 ease-in-out transition-colors text-shadow-lg">
               {" "}
               <InformationCircleIcon className="md:h-5 md:w-5 w-3 2xl:h-10 2xl:w-10 shadow-2xl text-shadow-2xs" />{" "}
               More

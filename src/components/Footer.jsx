@@ -28,7 +28,7 @@ const Footer = ({className = ""}) => {
         </ul>
       </div>
       <p className='mb-3'>Netflix Pakistan</p>
-      <p>This Page is a Copy of The Original Netflix Website. visit: <a className='underline text-red-600' href="https://www.netflix.com/pk/">Netflix</a></p>
+      <p>This Page is a Copy of The Original Netflix Website. visit: <a className='underline text-red-600' href="https://www.netflix.com/">Netflix</a></p>
       <p>Made By <a href="https://github.com/VicegerentPrince" className='underline text-purple-400'>Muneeb Shahzad</a></p>
     </div>
   )
