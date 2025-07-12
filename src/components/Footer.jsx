@@ -2,9 +2,9 @@ import React from 'react'
 
 const Footer = ({className = ""}) => {
   return (
-    <div className={`${className}`}>
+    <div className={`${className} 2xl:text-3xl`}>
       <p className='mb-5 font-extrabold'>Questions? Contact us.</p>
-      <div className="sections flex justify-between mb-10 px-10 leading-10 underline">
+      <div className="sections flex justify-between mb-10 px-10 leading-10 2xl:leading-20 underline">
         <ul className="left cursor-pointer">
             <li>FAQ</li>
             <li>Media Center</li>
