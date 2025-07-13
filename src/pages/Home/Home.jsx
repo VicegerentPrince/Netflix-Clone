@@ -57,7 +57,7 @@ const Home = () => {
         <MovieCards className=""  title="Top Rated" category={"top_rated"} />
         <MovieCards className=""  title="Popular" category="popular" />
         <MovieCards className=""  title="Upcoming" category={"upcoming"} />
-        <MovieCards className=""  title="On the Air" link={"https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1"} />
+        <MovieCards className=""  title="On the Air" category={"on_the_air"} type="tv"/>
       </div>
 
       <Footer className="px-10 2xl:px-20 mt-15 2xl:mt-30 pt-10 2xl:pt-20 pb-20 2xl:pb-20 bg-black"></Footer>
