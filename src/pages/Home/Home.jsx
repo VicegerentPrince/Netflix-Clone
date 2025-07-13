@@ -50,12 +50,14 @@ const Home = () => {
             <p className="cursor-default 2xl:text-2xl">A 18+</p>
           </div>
         </div>
-        <MovieCards className=" pl-4 pt-3 md:pt-0 md:pl-8 2xl:pl-16 md:-mt-38 2xl:-mt-60 relative" title="Popular on Netflix"  />
+        <MovieCards className=" pl-4 pt-3 md:pt-0 md:pl-8 2xl:pl-16 md:-mt-38 2xl:-mt-60 relative"  title={"Your Next Watch"} link={'https://api.themoviedb.org/3/trending/all/day?language=en-US'} />
       </div>
       <div className="more-cards pl-4 md:pl-8 2xl:pl-16 mt-10 flex flex-col gap-4">
-        <MovieCards className=""  title="Your Next Watch" />
-        <MovieCards className=""  title="Only On Netflix" />
-        <MovieCards className=""  title="Upcoming" />
+        <MovieCards className=""  title="Now Playing" category={"now_playing"} />
+        <MovieCards className=""  title="Top Rated" category={"top_rated"} />
+        <MovieCards className=""  title="Popular" category="popular" />
+        <MovieCards className=""  title="Upcoming" category={"upcoming"} />
+        <MovieCards className=""  title="On the Air" link={"https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1"} />
       </div>
 
       <Footer className="px-10 2xl:px-20 mt-15 2xl:mt-30 pt-10 2xl:pt-20 pb-20 2xl:pb-20 bg-black"></Footer>
