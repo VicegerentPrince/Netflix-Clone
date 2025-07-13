@@ -23,9 +23,15 @@ const Login = () => {
       <div className="login-card bg-black/77 m-auto md:w-[45%] md:p-18 p-6 pb-20 mt-24 md:mt-10 md:h-auto ease-in-out">
         <h2 className="font-black text-4xl">{signInState ? "Sign In" : "Sign Up"}</h2>
         <form action="" className="flex flex-col mt-10">
+          { !signInState &&
+          <input
+            type="text"
+            className="py-3 px-2 bg-[#333]/40 border-1 border-white/50 rounded-sm"
+            placeholder="Your Name"
+          />}
           <input
             type="email"
-            className="py-3 px-2 bg-[#333]/40 border-1 border-white/50 rounded-sm"
+            className="py-3 px-2 mt-10 bg-[#333]/40 border-1 border-white/50 rounded-sm"
             placeholder="Email"
           />
           <input
