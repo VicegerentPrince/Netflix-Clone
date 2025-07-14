@@ -5,6 +5,7 @@ import Login from "./pages/Login/Login";
 import Player from "./pages/Player/Player";
 import { auth } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
   const navigate = useNavigate();
@@ -28,6 +29,16 @@ const App = () => {
 
   return (
     <div>
+      <ToastContainer 
+        position="top-right" 
+        autoClose={3000} 
+        hideProgressBar={false} 
+        newestOnTop={true} 
+        closeOnClick 
+        pauseOnHover 
+        draggable 
+        theme="dark"
+      />
       <Routes>
         {<Route path="/" element={<Home  loading={loading}/>}></Route>}
         <Route path="/login" element={<Login />}></Route>
