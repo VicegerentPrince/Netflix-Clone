@@ -8,12 +8,10 @@ import MovieCards from "../../components/MovieCards";
 import Footer from "../../components/Footer";
 import { useNavigate } from "react-router-dom";
 
-
 const Home = () => {
-
   const navigate = useNavigate();
 
-  const heroData = {id: 93405, type: "tv"}
+  const heroData = { id: 93405, type: "tv" };
 
   return (
     <div className="">
@@ -29,7 +27,11 @@ const Home = () => {
         </div>
 
         <div className="hero-caption flex items-center justify-between md:block absolute top-28 md:top-35 2xl:top-55 px-8 md:px-16 2xl:px-20 2xl:py-10 w-full">
-          <img src={hero_title} alt="" className="hero-title h-24 md:h-46 2xl:h-96" />
+          <img
+            src={hero_title}
+            alt=""
+            className="hero-title h-24 md:h-46 2xl:h-96"
+          />
           <p className="font-extrabold hidden md:block mt-4 2xl:mt-16 text-xs md:text-lg 2xl:text-4xl text-shadow-lg cursor-default">
             Watch Final Season Now
           </p>
@@ -40,7 +42,12 @@ const Home = () => {
           </p>
 
           <div className="hero-btns md:flex md:items-center md:mt-6 2xl:mt-13 gap-4">
-            <button onClick={()=> navigate(`/player/${heroData.type}/` + heroData.id)} className="flex items-center md:mb-0 mb-2 md:gap-2 px-2 py-1 md:px-7 md:py-2.5 2xl:px-14 2xl:py-4 bg-white text-black rounded-md font-bold cursor-pointer text-xs md:text-lg 2xl:text-4xl hover:bg-white/80 ease-in-out transition-colors">
+            <button
+              onClick={() =>
+                navigate(`/player/${heroData.type}/` + heroData.id)
+              }
+              className="flex items-center md:mb-0 mb-2 md:gap-2 px-2 py-1 md:px-7 md:py-2.5 2xl:px-14 2xl:py-4 bg-white text-black rounded-md font-bold cursor-pointer text-xs md:text-lg 2xl:text-4xl hover:bg-white/80 ease-in-out transition-colors"
+            >
               {" "}
               <PlayIcon className="md:h-5 md:w-5 w-3 2xl:h-10 2xl:w-10" /> Play
             </button>
@@ -56,14 +63,23 @@ const Home = () => {
             <p className="cursor-default 2xl:text-2xl">A 18+</p>
           </div>
         </div>
-        <MovieCards className=" pl-4 pt-3 md:pt-0 md:pl-8 2xl:pl-16 md:-mt-38 2xl:-mt-60 relative"  title={"Your Next Watch"} link={'https://api.themoviedb.org/3/trending/all/day?language=en-US'} />
+        <MovieCards
+          className=" pl-4 pt-3 md:pt-0 md:pl-8 2xl:pl-16 md:-mt-38 2xl:-mt-60 relative"
+          title={"Your Next Watch"}
+          link={"https://api.themoviedb.org/3/trending/all/day?language=en-US"}
+        />
       </div>
       <div className="more-cards pl-4 md:pl-8 2xl:pl-16 mt-10 flex flex-col gap-4">
-        <MovieCards className=""  title="Now Playing" category={"now_playing"} />
-        <MovieCards className=""  title="Top Rated" category={"top_rated"} />
-        <MovieCards className=""  title="Popular" category="popular" />
-        <MovieCards className=""  title="Upcoming" category={"upcoming"} />
-        <MovieCards className=""  title="On the Air" category={"on_the_air"} type="tv"/>
+        <MovieCards className="" title="Now Playing" category={"now_playing"} />
+        <MovieCards className="" title="Top Rated" category={"top_rated"} />
+        <MovieCards className="" title="Popular" category="popular" />
+        <MovieCards className="" title="Upcoming" category={"upcoming"} />
+        <MovieCards
+          className=""
+          title="On the Air"
+          category={"on_the_air"}
+          type="tv"
+        />
       </div>
 
       <Footer className="px-10 2xl:px-20 mt-15 2xl:mt-30 pt-10 2xl:pt-20 pb-20 2xl:pb-20 bg-black"></Footer>
