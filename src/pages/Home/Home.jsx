@@ -6,9 +6,15 @@ import { PlayIcon } from "@heroicons/react/16/solid";
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
 import MovieCards from "../../components/MovieCards";
 import Footer from "../../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
+
+  const navigate = useNavigate();
+
+  const heroData = {id: 93405, type: "tv"}
+
   return (
     <div className="">
       <Navbar />
@@ -34,7 +40,7 @@ const Home = () => {
           </p>
 
           <div className="hero-btns md:flex md:items-center md:mt-6 2xl:mt-13 gap-4">
-            <button className="flex items-center md:mb-0 mb-2 md:gap-2 px-2 py-1 md:px-7 md:py-2.5 2xl:px-14 2xl:py-4 bg-white text-black rounded-md font-bold cursor-pointer text-xs md:text-lg 2xl:text-4xl hover:bg-white/80 ease-in-out transition-colors">
+            <button onClick={()=> navigate(`/player/${heroData.type}/` + heroData.id)} className="flex items-center md:mb-0 mb-2 md:gap-2 px-2 py-1 md:px-7 md:py-2.5 2xl:px-14 2xl:py-4 bg-white text-black rounded-md font-bold cursor-pointer text-xs md:text-lg 2xl:text-4xl hover:bg-white/80 ease-in-out transition-colors">
               {" "}
               <PlayIcon className="md:h-5 md:w-5 w-3 2xl:h-10 2xl:w-10" /> Play
             </button>
