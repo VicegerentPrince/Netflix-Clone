@@ -8,10 +8,9 @@ import { auth, logOut } from "../firebase";
 
 const Navbar = () => {
   const [darkNav, setDarkNav] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const user = auth.currentUser;
-  // console.log(user.email);
-  // console.log(user.displayName);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       setDarkNav(window.scrollY >= 100);
@@ -20,6 +19,10 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleShowDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
 
   return (
     <div
@@ -62,17 +65,25 @@ const Navbar = () => {
         <BellIcon className="h-5 md:h-7 2xl:h-9 hover:scale-107 ease-in-out transition-all" />
 
         <div className="relative flex items-center gap-0">
-          {/* Trigger Area */}
-          <div className="peer group flex items-center cursor-pointer">
-            <UserCircleIcon className="h-6 md:h-8 2xl:h-12 text-blue-400 group-hover:text-blue-300 transition-all ease-in-out" />
-            <ChevronDownIcon className="h-4 md:h-6 2xl:h-10 group-hover:translate-y-1 ease-in-out transition-all" />
+          <div
+            className="group flex items-center cursor-pointer"
+            onClick={handleShowDropdown}
+          >
+            <UserCircleIcon className="h-8 text-blue-400 group-hover:text-blue-300 transition-all ease-in-out" />
+            <ChevronDownIcon className="h-6 group-hover:translate-y-1 ease-in-out transition-all" />
           </div>
 
-          {/* Dropdown Menu */}
-          <div className="invisible opacity-0 peer-hover:visible peer-hover:opacity-100 hover:visible hover:opacity-100 absolute top-[155%] bg-[#000000e6] w-[220px] py-5 px-3 rounded transition-all duration-800 delay-200 ease-in-out z-50 right-2">
-            <p>Welcome {user.displayName}</p>
-            <p className="underline font-bold cursor-pointer" onClick={()=>logOut()}>Sign out</p>
-          </div>
+          {showDropdown && (
+            <div className="absolute top-[155%] bg-[#000000e6] w-[220px] py-5 px-3 rounded transition-all duration-300 ease-in-out z-50 right-2">
+              <p>Welcome {user.displayName}</p>
+              <p
+                className="underline font-bold cursor-pointer"
+                onClick={logOut}
+              >
+                Sign out
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
