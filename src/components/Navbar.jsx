@@ -4,10 +4,14 @@ import { BellIcon } from "@heroicons/react/16/solid";
 
 import { UserCircleIcon } from "@heroicons/react/16/solid";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import { auth, logOut } from "../firebase";
 
 const Navbar = () => {
   const [darkNav, setDarkNav] = useState(false);
-
+  const user = auth.currentUser;
+  // console.log(user.email);
+  // console.log(user.displayName);
+  
   useEffect(() => {
     const handleScroll = () => {
       setDarkNav(window.scrollY >= 100);
@@ -65,8 +69,9 @@ const Navbar = () => {
           </div>
 
           {/* Dropdown Menu */}
-          <div className="invisible opacity-0 peer-hover:visible peer-hover:opacity-100 hover:visible hover:opacity-100 absolute top-[155%] bg-[#000000e6] w-[220px] py-5 px-3 rounded transition-all duration-800 delay-200 ease-in-out z-50">
-            <p className="underline font-bold">Sign out</p>
+          <div className="invisible opacity-0 peer-hover:visible peer-hover:opacity-100 hover:visible hover:opacity-100 absolute top-[155%] bg-[#000000e6] w-[220px] py-5 px-3 rounded transition-all duration-800 delay-200 ease-in-out z-50 right-2">
+            <p>Welcome {user.displayName}</p>
+            <p className="underline font-bold cursor-pointer" onClick={()=>logOut()}>Sign out</p>
           </div>
         </div>
       </div>

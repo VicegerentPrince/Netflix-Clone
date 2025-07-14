@@ -1,9 +1,24 @@
-import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { auth, signUp, login } from "../../firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Login = () => {
 
-    const [signInState, setSignInState] = useState(false)
+    const [signInState, setSignInState] = useState(true);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
+
+    const userAuth = async (event) => {
+      event.preventDefault();
+      if (signInState) {
+        await login(email, password)
+      } else {
+        await signUp(name, email, password)
+      }
+    }
 
   return (
     <div className="login h-full">
@@ -28,24 +43,30 @@ const Login = () => {
             type="text"
             className="py-3 px-2 bg-[#333]/40 border-1 border-white/50 rounded-sm"
             placeholder="Your Name"
+            value={name}
+            onChange={(e) => {setName(e.target.value)}}
           />}
           <input
             type="email"
             className="py-3 px-2 mt-10 bg-[#333]/40 border-1 border-white/50 rounded-sm"
             placeholder="Email"
+            value={email}
+            onChange={(e) => {setEmail(e.target.value)}}
           />
           <input
             type="text"
             className="py-3 px-2 mt-10 bg-[#333]/40 border-1 border-white/50 rounded-sm"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
-          { !signInState &&
+          {/* { !signInState &&
           <input
             type="text"
             className="py-3 px-2 mt-10 bg-[#333]/40 border-1 border-white/50 rounded-sm"
             placeholder="Confirm Password"
-          />}
-          <button className="bg-red-600 hover:bg-red-700 py-2 mt-6 rounded-sm font-bold cursor-pointer transition-colors">
+          />} */}
+          <button onClick={userAuth} className="bg-red-600 hover:bg-red-700 py-2 mt-6 rounded-sm font-bold cursor-pointer transition-colors">
             {signInState ? "Sign In" : "Sign Up"}
           </button>
           <div className="flex items-center gap-3 mt-5">

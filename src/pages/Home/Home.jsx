@@ -8,14 +8,15 @@ import MovieCards from "../../components/MovieCards";
 import Footer from "../../components/Footer";
 import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const Home = ({loading}) => {
+  
   const navigate = useNavigate();
 
   const heroData = { id: 93405, type: "tv" };
 
-  return (
+  return ( !loading ?
     <div className="">
-      <Navbar />
+      <Navbar/>
       <div className="hero relative">
         <div className="relative">
           <img
@@ -83,7 +84,7 @@ const Home = () => {
       </div>
 
       <Footer className="px-10 2xl:px-20 mt-15 2xl:mt-30 pt-10 2xl:pt-20 pb-20 2xl:pb-20 bg-black"></Footer>
-    </div>
+    </div> : <div className="absolute w-full h-full bg-black"></div>
   );
 };
 
