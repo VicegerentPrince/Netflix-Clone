@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, signUp, login } from "../../firebase";
-import { onAuthStateChanged } from "firebase/auth";
 
 const Login = () => {
 
@@ -29,9 +28,7 @@ const Login = () => {
       />
       <div className="login-container flex w-full h-full">
         <div className="login-nav px-8 py-7">
-          <Link to="/">
             <img src="logo.png" alt="" className="h-6 md:h-8" />
-          </Link>
         </div>
       </div>
 
