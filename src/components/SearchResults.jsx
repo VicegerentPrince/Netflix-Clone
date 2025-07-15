@@ -23,7 +23,7 @@ export default function SearchResults({ query }) {
 
     fetch(
       `https://api.themoviedb.org/3/search/${
-        searchType ? searchType : "movie"
+        searchType ? searchType : "multi"
       }?query=${encodeURIComponent(
         query
       )}&include_adult=false&language=en-US&page=${page}`,
