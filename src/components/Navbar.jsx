@@ -4,9 +4,16 @@ import { BellIcon } from "@heroicons/react/16/solid";
 
 import { UserCircleIcon } from "@heroicons/react/16/solid";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import { XMarkIcon } from "@heroicons/react/16/solid";
 import { auth, logOut } from "../firebase";
 
-const Navbar = () => {
+const Navbar = ({
+  searchBoxOpen,
+  setSearchBoxOpen,
+  setIsSearching,
+  query,
+  setQuery,
+}) => {
   const [darkNav, setDarkNav] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const user = auth.currentUser;
@@ -33,7 +40,9 @@ const Navbar = () => {
       <div className="navbar-left flex items-center gap-8 2xl:gap-14">
         <img
           src="/logo.png"
-          className="logo h-6 md:h-8 2xl:h-10 cursor-pointer transition-all ease-in-out hover:scale-101 duration-300"
+          className={`md:block ${
+            searchBoxOpen ? "hidden" : "block"
+          } logo h-6 md:h-8 2xl:h-10 cursor-pointer transition-all ease-in-out hover:scale-101 duration-300 `}
           alt="Logo"
         />
         <ul className="hidden md:flex gap-4 2xl:gap-8 text-sm 2xl:text-2xl">
@@ -58,7 +67,36 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-right flex items-center gap-4">
-        <MagnifyingGlassIcon className="h-6 md:h-8 2xl:h-10 hover:scale-107 ease-in-out transition-all" />
+        <div>
+          {searchBoxOpen ? (
+            <div className="relative flex items-center">
+              <input
+                type="text"
+                placeholder="Search"
+                className="py-0.5 px-3 bg-[#333]/40 border-1 border-white/50 rounded-sm"
+                onChange={(e) => {
+                  const val = e.target.value;
+                  setQuery(val);
+                  setIsSearching(val.trim().length > 0);
+                }}
+                value={query}
+              />
+              <XMarkIcon
+                className="h-5 absolute right-1 cursor-pointer hover:scale-107"
+                onClick={() => {
+                  setSearchBoxOpen(false);
+                  setIsSearching(false);
+                  setQuery("")
+                }}
+              />
+            </div>
+          ) : (
+            <MagnifyingGlassIcon
+              className="h-6 md:h-8 2xl:h-10 hover:scale-107 ease-in-out transition-all cursor-pointer"
+              onClick={() => setSearchBoxOpen(true)}
+            />
+          )}
+        </div>
         <p className=" hover:scale-107 2xl:text-2xl ease-in-out transition-all cursor-pointer md:block hidden">
           KIDS
         </p>
