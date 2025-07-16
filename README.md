@@ -23,14 +23,6 @@ A modern, responsive Netflix Clone built with **React**, **Tailwind CSS**, **Fir
 - [Firebase Auth](https://firebase.google.com/)
 - [TMDB API](https://www.themoviedb.org/documentation/api)
 
----
-
-## 📸 Demo
-
-👉 [Live Demo](https://the-movie-app-clone.vercel.app)
-
----
-
 ## 🔧 Installation & Setup
 
 1. **Clone the repo**
