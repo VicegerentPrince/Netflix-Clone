@@ -25,6 +25,12 @@ A modern, responsive Netflix Clone built with **React**, **Tailwind CSS**, **Fir
 
 ---
 
+## 📸 Demo
+
+👉 [Live Demo](https://the-movie-app-clone.vercel.app)
+
+---
+
 ## 🔧 Installation & Setup
 
 1. **Clone the repo**
