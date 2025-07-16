@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { toast } from "react-toastify";
+import { sendEmailVerification } from "firebase/auth";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -43,14 +44,17 @@ const signUp = async (name, email, password) => {
       displayName: name,
     });
 
-    toast.success(`Account Created ${user.displayName}`)
+    await sendEmailVerification(user);
 
+    
     await addDoc(collection(db, "user"), {
       uid: user.uid,
       name,
       authProvider: "local",
       email,
     });
+    toast.success(`Account Created!`)
+    toast.info("Check Your Email for Verification")
   } catch (error) {
     console.log(error);
     toast.error(humanizeFirebaseError(error.code));
@@ -59,8 +63,9 @@ const signUp = async (name, email, password) => {
 
 const login = async (email, password) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-    toast.success("Logged In")
+    const res = await signInWithEmailAndPassword(auth, email, password);
+    const user = res.user;
+    if (user.emailVerified) {toast.success("Logged In")} else {toast.error("Email not Verified.")}
   } catch (error) {
     console.log(error);
     toast.error(humanizeFirebaseError(error.code))
