@@ -18,19 +18,16 @@ const Player = ({ loading }) => {
   const { type, id } = useParams();
 
   useEffect(() => {
-    // console.log(`https://api.themoviedb.org/3/${type}/${id}/videos?language=en-US`);
     fetch(
       `https://api.themoviedb.org/3/${type}/${id}/videos?language=en-US`,
       options
     )
       .then((res) => res.json())
-      // .then((res) => console.log(res))
       .then((res) => {
         const trailer = res.results.find(
           (m) => m.type === "Trailer" && m.site === "YouTube"
         );
         setMovie(trailer);
-        console.log(trailer);
       })
       .catch((err) => console.error(err));
   }, []);

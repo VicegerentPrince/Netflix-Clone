@@ -45,7 +45,6 @@ export default function SearchResults({ query }) {
                 .sort((a, b) => b.popularity - a.popularity);
         setTotalPages(res.total_pages || 1);
         setSearchData(results);
-        console.log(results);
       })
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));

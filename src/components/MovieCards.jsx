@@ -42,7 +42,6 @@ export default function MovieCards({
     )
       .then((res) => res.json())
       .then((res) => setApiData(res.results))
-      .then((res) => console.log(res))
       .catch((err) => console.error(err));
   }, []);
 
